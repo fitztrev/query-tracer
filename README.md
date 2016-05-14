@@ -39,7 +39,7 @@ And works with Debugbar:
 
 It makes use of Laravel's global query scopes to do a backtrace and find where a query originated. Then it puts that info in extraneous but helpful `WHERE` clauses.
 
-By default, it's only enabled when `debug` is on. You can turn it off for specific models by adding this method to your model(s):
+By default, it's only enabled when `debug` is on. You can change this behavior for specific models by adding an `enableQueryTracer()` method to your model(s). For example:
 
 ```php
 public function enableQueryTracer()
