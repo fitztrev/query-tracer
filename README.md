@@ -4,19 +4,11 @@
 
 Find exactly *where* a specific database query is being called in your Laravel application.
 
-Want to optimize or debug your database queries but not sure where they're being called? See below.
-
-Works with Clockwork:
+Want to optimize or debug your database queries but not sure where they're being called? See how it works below with [Clockwork](https://github.com/itsgoingd/clockwork):
 
 ![](http://i.imgur.com/0cRs7TU.png)
 
-And works with Debugbar:
-
-![](http://i.imgur.com/dKm82S2.png)
-
-### Requirements
-
-[Clockwork](https://github.com/itsgoingd/clockwork) or [Debugbar](https://github.com/barryvdh/laravel-debugbar) or your own custom query listener
+If you use [Debugbar](https://github.com/barryvdh/laravel-debugbar), it has this functionality built-in if you set `debugbar.options.db.backtrace` to `true`.
 
 ### Installation
 
