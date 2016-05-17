@@ -35,7 +35,7 @@ class QueryTracer implements ScopeInterface
     }
 
     public function remove(Builder $builder) {
-        return $builder;
+
     }
 
 }
