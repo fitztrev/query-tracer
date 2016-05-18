@@ -28,7 +28,7 @@ class QueryTracer implements Scope
 
         foreach ($traces as $trace) {
             // Find the first non-vendor-dir file in the backtrace
-            if (isset($trace['file']) && ! str_contains($trace['file'], '/vendor/')) {
+            if (isset($trace['file']) && ! preg_match('/vendor/', $trace['file'])) {
                 $file = '"query.file" <> "' . $trace['file'] . '"';
                 $line = '"query.line" <> "' . $trace['line'] . '"';
 
