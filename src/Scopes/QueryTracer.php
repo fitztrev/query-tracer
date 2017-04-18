@@ -3,24 +3,21 @@
 namespace Fitztrev\QueryTracer\Scopes;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Scope;
+use Illuminate\Database\Eloquent\ScopeInterface;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Config;
 
-class QueryTracer implements Scope
+class QueryTracer implements ScopeInterface
 {
 
-    private function isEnabled(Model $model)
+    private function isEnabled()
     {
-        if (method_exists($model, 'enableQueryTracer')) {
-            return $model->enableQueryTracer();
-        }
-
-        return config('app.debug');
+        return Config::get('app.debug');
     }
 
-    public function apply(Builder $builder, Model $model)
+    public function apply(Builder $builder)
     {
-        if (! $this->isEnabled($model)) {
+        if (! $this->isEnabled()) {
             return;
         }
 
@@ -36,4 +33,9 @@ class QueryTracer implements Scope
             }
         }
     }
+
+    public function remove(Builder $builder) {
+
+    }
+
 }
